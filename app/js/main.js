@@ -15,217 +15,217 @@ var backPLaying = false;
 var gainNodeSequence;
 
 function init(){
-	$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height() + 30);
+	// $("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height() + 30);
 
-	try{
-		initSound();
-		initMotionsound();
-		initClickHandlers();
-	}catch(err){
-		$("#loadingmusic").html('AudioContext not supported. Try a real browser:p. Click to register.');
-		$("#loadingmusic").height(26*3);
-		$("#loadingmusic").click(function (event) {
-			window.location.href = 'http://mediahackathon.eventbrite.com';
-		});
-	}
+	// try{
+	// 	initSound();
+	// 	initMotionsound();
+	// 	initClickHandlers();
+	// }catch(err){
+	// 	$("#loadingmusic").html('AudioContext not supported. Try a real browser:p. Click to register.');
+	// 	$("#loadingmusic").height(26*3);
+	// 	$("#loadingmusic").click(function (event) {
+	// 		window.location.href = 'http://mediahackathon.eventbrite.com';
+	// 	});
+	// }
 
 	//fastclick for mobile devices:
 	FastClick.attach(document.body);
 }
 
-function initClickHandlers () {
+// function initClickHandlers () {
 
-	$(".sequence-group > .sequence").click(function(event){
-		event.preventDefault();
-		if($(this).hasClass("sequence-left")||$(this).hasClass("sequence-left-off")){
-			//left
-			$(this).toggleClass("sequence-left");
-			$(this).toggleClass("sequence-left-off");
-		}else if($(this).hasClass("sequence-middle")||$(this).hasClass("sequence-middle-off")){
-			//MIDDLE
-			$(this).toggleClass("sequence-middle");
-			$(this).toggleClass("sequence-middle-off");
-		}else if($(this).hasClass("sequence-right")||$(this).hasClass("sequence-right-off")){
-			//RIGHT
-			$(this).toggleClass("sequence-right");
-			$(this).toggleClass("sequence-right-off");
-		}
-		updateSequenceArrays();
+// 	$(".sequence-group > .sequence").click(function(event){
+// 		event.preventDefault();
+// 		if($(this).hasClass("sequence-left")||$(this).hasClass("sequence-left-off")){
+// 			//left
+// 			$(this).toggleClass("sequence-left");
+// 			$(this).toggleClass("sequence-left-off");
+// 		}else if($(this).hasClass("sequence-middle")||$(this).hasClass("sequence-middle-off")){
+// 			//MIDDLE
+// 			$(this).toggleClass("sequence-middle");
+// 			$(this).toggleClass("sequence-middle-off");
+// 		}else if($(this).hasClass("sequence-right")||$(this).hasClass("sequence-right-off")){
+// 			//RIGHT
+// 			$(this).toggleClass("sequence-right");
+// 			$(this).toggleClass("sequence-right-off");
+// 		}
+// 		updateSequenceArrays();
 
-		// CHECK for start
-		if(!hasStarted){
-			// $(".title > h2").text(titleArray[currentSequence]);
-			$(".title").css("background-image", "url(/img/gear.png)");
-			playSound(bufferList[0],0);
-			$(".title-container > span").css("font-size","10vw");
-			$(".title-container > span").text(titleArray2[0]);
-			// interval = setInterval("sequenceTick();", 400);
-			hasStarted = true;
-		}
+// 		// CHECK for start
+// 		if(!hasStarted){
+// 			// $(".title > h2").text(titleArray[currentSequence]);
+// 			$(".title").css("background-image", "url(/img/gear.png)");
+// 			playSound(bufferList[0],0);
+// 			$(".title-container > span").css("font-size","10vw");
+// 			$(".title-container > span").text(titleArray2[0]);
+// 			// interval = setInterval("sequenceTick();", 400);
+// 			hasStarted = true;
+// 		}
 
-		return false;
-	});
+// 		return false;
+// 	});
 
-	$(".title").click(function(event){
-		event.preventDefault();
-		$(".title").hide();
+// 	$(".title").click(function(event){
+// 		event.preventDefault();
+// 		$(".title").hide();
 
-		return false;
-	});
-}
+// 		return false;
+// 	});
+// }
 
-function updateSequenceArrays(){
-	$(".sequence-left-group > .sequence").each(function(i,el){
-		leftArray[i] = $(el).hasClass("sequence-left");
-	});
-	$(".sequence-middle-group > .sequence").each(function(i,el){
-		middleArray[i] = $(el).hasClass("sequence-middle");
-	});
-	$(".sequence-right-group > .sequence").each(function(i,el){
-		rightArray[i] = $(el).hasClass("sequence-right");
-	});
-}
-function updateMiddleArray(){
-	$(".sequence-middle-group > .sequence").each(function(i,el){
-		middleArray[i] = $(el).hasClass("sequence-middle");
-	})
-}
-function updateRightArray(){
-	$(".sequence-right-group > .sequence").each(function(i,el){
-		rightArray[i] = $(el).hasClass("sequence-right");
-	})
-}
+// function updateSequenceArrays(){
+// 	$(".sequence-left-group > .sequence").each(function(i,el){
+// 		leftArray[i] = $(el).hasClass("sequence-left");
+// 	});
+// 	$(".sequence-middle-group > .sequence").each(function(i,el){
+// 		middleArray[i] = $(el).hasClass("sequence-middle");
+// 	});
+// 	$(".sequence-right-group > .sequence").each(function(i,el){
+// 		rightArray[i] = $(el).hasClass("sequence-right");
+// 	});
+// }
+// function updateMiddleArray(){
+// 	$(".sequence-middle-group > .sequence").each(function(i,el){
+// 		middleArray[i] = $(el).hasClass("sequence-middle");
+// 	})
+// }
+// function updateRightArray(){
+// 	$(".sequence-right-group > .sequence").each(function(i,el){
+// 		rightArray[i] = $(el).hasClass("sequence-right");
+// 	})
+// }
 
-function sequenceTick(){
-	if(currentSequence==3){
-		currentSequence = 0;
-		$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height()  +30);
-		if(hasStarted){
-			if(!backPLaying){
-				initBackSoundBassline();
-				initBackSoundSequence();
-				backPLaying = true;
-			}
-		}
-
-
-	}else{
-		currentSequence ++;
-	}
-	$("body").css("background-color","rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*128)+128)+")");
+// function sequenceTick(){
+// 	if(currentSequence==3){
+// 		currentSequence = 0;
+// 		$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height()  +30);
+// 		if(hasStarted){
+// 			if(!backPLaying){
+// 				initBackSoundBassline();
+// 				initBackSoundSequence();
+// 				backPLaying = true;
+// 			}
+// 		}
 
 
-	var top = parseInt($("#flow-sequencer").css("top"), 10);
-	// console.log("rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*255))+")");
-	$("#flow-sequencer").css("top",currentSequence*$("#flow-sequencer").height() +5);
-	// $("body").css("background-color",colors[Math.floor(Math.random()*colors.length)]);
+// 	}else{
+// 		currentSequence ++;
+// 	}
+// 	$("body").css("background-color","rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*128)+128)+")");
 
-	if(!hasStarted){
-		$(".title-container > span").text(titleArray1[currentSequence]);
-		$(".title-container > span").css("font-size","15vw");
-	}else{
-		$(".title-container > span").text(titleArray2[currentSequence]);
-	}
 
-	if(leftArray[(currentSequence + 1) % 4])
-		playSound(bufferList[0],startTime);
-	if(middleArray[currentSequence])
-		playSound(bufferList[1],startTime);
-	if(rightArray[currentSequence])
-		playSound(bufferList[2],startTime);
-}
+// 	var top = parseInt($("#flow-sequencer").css("top"), 10);
+// 	// console.log("rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*255))+")");
+// 	$("#flow-sequencer").css("top",currentSequence*$("#flow-sequencer").height() +5);
+// 	// $("body").css("background-color",colors[Math.floor(Math.random()*colors.length)]);
 
-function initSound() {
-	// Fix up prefixing
-	window.AudioContext = window.AudioContext || window.webkitAudioContext;
-	context = new AudioContext();
+// 	if(!hasStarted){
+// 		$(".title-container > span").text(titleArray1[currentSequence]);
+// 		$(".title-container > span").css("font-size","15vw");
+// 	}else{
+// 		$(".title-container > span").text(titleArray2[currentSequence]);
+// 	}
 
-	var bufferLoader = new BufferLoader(
-		context,
-		[
-			'/sounds/original/Snare.mp3',
-			'/sounds/original/Hihat.mp3',
-			'/sounds/original/Kick.mp3',
-			'/sounds/original/Bassline.wav',
-			'/sounds/original/sequencer2.wav',
-		],
-		finishedLoading,
-		loadingProgress
-		);
+// 	if(leftArray[(currentSequence + 1) % 4])
+// 		playSound(bufferList[0],startTime);
+// 	if(middleArray[currentSequence])
+// 		playSound(bufferList[1],startTime);
+// 	if(rightArray[currentSequence])
+// 		playSound(bufferList[2],startTime);
+// }
 
-	bufferLoader.load();
-	startTime = context.currentTime + 0.0100;
-}
+// function initSound() {
+// 	// Fix up prefixing
+// 	window.AudioContext = window.AudioContext || window.webkitAudioContext;
+// 	context = new AudioContext();
 
-function finishedLoading(_bufferList) {
-	bufferList = _bufferList;
+// 	var bufferLoader = new BufferLoader(
+// 		context,
+// 		[
+// 			'/sounds/original/Snare.mp3',
+// 			'/sounds/original/Hihat.mp3',
+// 			'/sounds/original/Kick.mp3',
+// 			'/sounds/original/Bassline.wav',
+// 			'/sounds/original/sequencer2.wav',
+// 		],
+// 		finishedLoading,
+// 		loadingProgress
+// 		);
 
-	$('#loadingmusic').addClass('hidden');
-	$('#loadingbar').addClass('hidden');
+// 	bufferLoader.load();
+// 	startTime = context.currentTime + 0.0100;
+// }
 
-	interval = setInterval(sequenceTick, 458);
-}
+// function finishedLoading(_bufferList) {
+// 	bufferList = _bufferList;
 
-function loadingProgress (percentage) {
-	$("#loadingbar").width(percentage*100 + '%');
-}
+// 	$('#loadingmusic').addClass('hidden');
+// 	$('#loadingbar').addClass('hidden');
 
-function initBackSoundBassline(){
-	var source = context.createBufferSource();
-	source.buffer = bufferList[3];
-	source.loop = true;
-	source.connect(context.destination);
-	if (!source.start)
-	  source.start = source.noteOn;
-	source.start(startTime);
-}
+// 	interval = setInterval(sequenceTick, 458);
+// }
 
-function initBackSoundSequence(){
-	var source = context.createBufferSource();
-	source.buffer = bufferList[4];
-	source.loop = true;
-	gainNodeSequence = context.createGainNode();
-	source.connect(gainNodeSequence);
-	gainNodeSequence.connect(context.destination);
-	if (!source.start)
-	  source.start = source.noteOn;
-	source.start(startTime);
-}
+// function loadingProgress (percentage) {
+// 	$("#loadingbar").width(percentage*100 + '%');
+// }
 
-function playSound(buffer, time) {
-	var source = context.createBufferSource();
-	source.buffer = buffer;
-	source.connect(context.destination);
-	if (!source.start)
-	  source.start = source.noteOn;
-	source.start(time);
-}
+// function initBackSoundBassline(){
+// 	var source = context.createBufferSource();
+// 	source.buffer = bufferList[3];
+// 	source.loop = true;
+// 	source.connect(context.destination);
+// 	if (!source.start)
+// 	  source.start = source.noteOn;
+// 	source.start(startTime);
+// }
 
-function initMotionsound () {
-	var motionsound = new Motionsound({
-		onLeftVolumeChanged: leftVolumeChanged,
-		onRightVolumeChanged: rightVolumeChanged
-	});
-	motionsound.init();
-}
+// function initBackSoundSequence(){
+// 	var source = context.createBufferSource();
+// 	source.buffer = bufferList[4];
+// 	source.loop = true;
+// 	gainNodeSequence = context.createGainNode();
+// 	source.connect(gainNodeSequence);
+// 	gainNodeSequence.connect(context.destination);
+// 	if (!source.start)
+// 	  source.start = source.noteOn;
+// 	source.start(startTime);
+// }
 
-function leftVolumeChanged(value){
-	// value is een waarde tussen 0 en 1
-	// konsole.log( 'left volume: ' + Math.round(value*100)/100 );
+// function playSound(buffer, time) {
+// 	var source = context.createBufferSource();
+// 	source.buffer = buffer;
+// 	source.connect(context.destination);
+// 	if (!source.start)
+// 	  source.start = source.noteOn;
+// 	source.start(time);
+// }
 
-	if(gainNodeSequence){
-		gainNodeSequence.gain.value = value;
-	}
-}
+// function initMotionsound () {
+// 	var motionsound = new Motionsound({
+// 		onLeftVolumeChanged: leftVolumeChanged,
+// 		onRightVolumeChanged: rightVolumeChanged
+// 	});
+// 	motionsound.init();
+// }
 
-function rightVolumeChanged(value){
-	// value is een waarde tussen 0 en 1
-	// konsole.log( 'right volume: ' + Math.round(value*100)/100 );
+// function leftVolumeChanged(value){
+// 	// value is een waarde tussen 0 en 1
+// 	// konsole.log( 'left volume: ' + Math.round(value*100)/100 );
 
-	if(gainNodeSequence){
-		gainNodeSequence.gain.value = value;
-	}
-}
+// 	if(gainNodeSequence){
+// 		gainNodeSequence.gain.value = value;
+// 	}
+// }
+
+// function rightVolumeChanged(value){
+// 	// value is een waarde tussen 0 en 1
+// 	// konsole.log( 'right volume: ' + Math.round(value*100)/100 );
+
+// 	if(gainNodeSequence){
+// 		gainNodeSequence.gain.value = value;
+// 	}
+// }
 
 $(function () {
 	init();

@@ -1,0 +1,33 @@
+/**
+
+Content attributes
+------------------
+Title
+Subtitle
+Short Description
+Long Description
+URL
+VIDEO
+IMAGE small
+IMAGE big
+
+Metadata
+---------
+Date
+Tags[]
+Technologies[]
+Mixers involved[]
+Type
+
+**/
+<script src="mix-card.js"></script>
+<polymer-element name="mix-card" attributes="
+  project subtitle shortDescription url">
+  <template>
+    <span>Waddup?! I'm <b>mix-card</b>.</span>
+    <p>Title:{{project}}</p>
+    <p>Subtitle:{{subtitle}}</p>
+    <p>Description:{{shortDescription}}</p>
+    <p>URL:{{url}}</p>
+  </template>
+</polymer-element>
