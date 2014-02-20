@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <!-- Facebook meta tags:
+        <meta property="og:image" content="http://mediahackathon.mixlab.be/sharable_logo.jpg">
+        <meta property="og:title" content="Media Hackathon">
+        <meta property="og:url" content="http://mediahackathon.mixlab.be">
+        <meta property="og:site_name" content="Media Hackathon">
+
+        <meta property="og:description" content="In het weekend van de 15e en de 16e maart doet het MiX een media hackathon. Maar niet zomaar een hackathon, nee. We gaan een opdracht krijgen van ***puuut*** (damn, we mogen niet zeggen wie het is, maar het is een hippe Belgische band ;-) ) waarbij we iets met hun muziek doen.
+De hack, of verschillende hacks, worden dan gedemonstreerd tijdens hun optreden op het MiX-event op 1 april. Het is dus de bedoeling dat die hack(s) op één of andere manier verbonden zijn met hun optreden/muziek/videoclips/....
+Nu, dit is niet alles. Er gaat nog eens gefilmd worden tijdens de hackathon. Die beelden zullen als een soort prequel getoond worden op het MiX-event en zullen dan uiteindelijk leiden tot de demonstratie van de hacks tijdens hun live optreden.
+Wat valt er te winnen? Roem, fame,... en een plaats op het podium naast ***puuut*** ! Als dat geen reden is, dan weten wij het ook niet :p">-->
+
+        <!-- Twitter card
+        <meta name="twitter:card" content="photo">
+        <meta name="twitter:creator" content="mixbe">
+        <meta name="twitter:title" content="Media Hackathon">
+        <meta name="twitter:image" content="http://mediahackathon.mixlab.be/sharable_logo.jpg">
+        <meta name="twitter:image:width" content="401">
+        <meta name="twitter:image:height" content="319">-->
+
+
+        <title>MiX Lab</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/konsole.css">
+        <link rel="stylesheet" href="css/desktop.css">
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="desktop_bg"></div>
+        <div class="bg"></div>
+        <div class="main-container">
+            <div class="main wrapper clearfix">
+                <a href="http://mediahackathon.eventbrite.com", target="_parent">
+                    <div class="title-container">
+                        <span>-&gt; Inschrijven! &lt;-</span>
+                    </div>
+                </a>
+                <div class="helmet-container">
+                    <div id="helmet-left" class="helmet"></div>
+                    <div id="helmet-right" class="helmet"></div>
+                    <div id="loadingmusic">Loading music...</div>
+                    <div id="loadingbar"></div>
+                </div>
+                <div class="sequence-container">
+
+                    <div class="sequence-group sequence-left-group">
+                        <div class="sequence sequence-left-off"></div>
+                        <div class="sequence sequence-left-off"></div>
+                        <div class="sequence sequence-left-off"></div>
+                        <div class="sequence sequence-left-off"></div>
+                    </div>
+                    <div class="sequence-group sequence-middle-group">
+                        <div class="sequence sequence-middle-off"></div>
+                        <div class="sequence sequence-middle-off"></div>
+                        <div class="sequence sequence-middle-off"></div>
+                        <div class="sequence sequence-middle-off"></div>
+                    </div>
+                    <div class="sequence-group sequence-right-group">
+                        <div class="sequence sequence-right-off"></div>
+                        <div class="sequence sequence-right-off"></div>
+                        <div class="sequence sequence-right-off"></div>
+                        <div class="sequence sequence-right-off"></div>
+                    </div>
+                    <div id="flow-sequencer">&#160;</div>
+                </div> <!-- #sequence-container -->
+
+            </div> <!-- #main -->
+            <span id="madeby">iMinds Media Innovation Center</span>
+        </div> <!-- #main-container -->
+
+
+        <iframe src="index.html" width="320" height="568"></iframe>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+        <script src="js/Bufferloader.js"></script>
+        <script src="js/vendor/fastclick.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/motionsound.js"></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src='//www.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>

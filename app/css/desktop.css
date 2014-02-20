@@ -1,0 +1,32 @@
+iframe{
+	display: none;
+}
+
+.desktop_bg{
+	display: none;
+}
+
+
+/* Desktop ----------- */
+@media only screen and (min-width:769px) {
+	body{
+		background-color: #F7F7F4;
+		text-align: center;
+		margin: 0px;
+		padding: 0px;
+	}
+
+	.bg, .main-container{
+		display: none;
+	}
+
+	iframe{
+		border: 20px solid black;
+		margin-top: 20px;
+		display: inline;
+	}
+
+	.desktop_bg{
+		display: block;
+	}
+}
