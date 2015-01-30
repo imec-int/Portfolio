@@ -21,13 +21,43 @@ Type
 
 **/
 <script src="mix-card.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+
 <polymer-element name="mix-card" attributes="
   project subtitle shortDescription url">
   <template>
-    <span>Waddup?! I'm <b>mix-card</b>.</span>
-    <p>Title:{{project}}</p>
+  	<link rel="stylesheet" href="mix-card.css">
+    <div class="cardContainer">
+	    <div class="cardBody">
+	    	<div class="cardMainContent">
+			    <div class="imgHolder-side">
+			    	&#160;
+			    </div>
+			    <div class="mainHolder">
+			    	<p class="cardTitle">Media hackathon interactive flyer</p>
+			    	<p class="cardDescription">An interactive mobile-first web app to promote our Media Hackathon 2014. The application lets you use a sequencer to make electronic music.</p>
+			    </div>
+			</div>
+		    <div class="cardSubContent">
+		    	<p class="subBodyTitle">Technologies</p>
+		    	<ul class="imgList">
+		    		<li><img src="http://www.webmonkey.com/wp-content/uploads/2012/06/HTML5audio1.jpg"  /></li>
+		    		<li><img src="http://www.multipetros.gr/wp-content/uploads/2012/05/css3logo.png"  /></li>
+		    	</ul>
+		    </div>
+		</div>
+		<div class="cardFooter">
+			<ul class="tagList">
+	    		<li>Web</li>
+	    		<li>Music</li>
+	    		<li>Hackathon</li>
+	    		<li>Interactive</li>
+	    	</ul>
+		</div>
+	</div>
+    <!-- <p>Title:{{project}}</p>
     <p>Subtitle:{{subtitle}}</p>
     <p>Description:{{shortDescription}}</p>
-    <p>URL:{{url}}</p>
+    <p>URL:{{url}}</p> -->
   </template>
 </polymer-element>

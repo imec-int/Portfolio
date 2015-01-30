@@ -1,0 +1,22 @@
+{
+  "name": "Portfolio",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mixbe/Portfolio",
+  "authors": [
+    "Robby Wauters <robbywauters@gmail.com>"
+  ],
+  "description": "portfolio of recent projects",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "components"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.4"
+  }
+}

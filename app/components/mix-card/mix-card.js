@@ -4,7 +4,8 @@
 
 	// Ran for every instance of the element that's created.
 	Polymer('mix-card', {
-	    created: function() { },
+	    created: function() {
+	    console.log("card initiated") },
 		ready: function() { },
 		attached: function () { },
 		detached: function() { },

@@ -38,12 +38,15 @@ Wat valt er te winnen? Roem, fame,... en een plaats op het podium naast ***puuut
         <link rel="stylesheet" href="css/desktop.css">
 
         <!-- VENDOR Scripts -->
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-        <script src="js/vendor/platform.js"></script>
-        <script src="js/vendor/polymer.js"></script>
+        <script src="components/webcomponentsjs/webcomponents.js"></script>
 
         <!-- Components -->
-        <link rel="import" href="components/mix-card/mix-card.html">
+        <link rel="import"
+            href="components/polymer/polymer.html">
+        <link rel="import"
+            href="components/font-roboto/roboto.html">
+        <link rel="import"
+            href="components/mix-card/mix-card.html">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -53,13 +56,10 @@ Wat valt er te winnen? Roem, fame,... en een plaats op het podium naast ***puuut
         <div class="bg"></div>
         <div class="main-container">
             <div class="main wrapper clearfix">
-                <div class="title-container">
-
-                </div>
                 <mix-card></mix-card>
 
             </div> <!-- #main -->
-            <span id="madeby">iMinds Media Innovation Center</span>
+
         </div> <!-- #main-container -->
 
 
@@ -71,11 +71,11 @@ Wat valt er te winnen? Roem, fame,... en een plaats op het podium naast ***puuut
         <script src="js/vendor/fastclick.js"></script>
         <script src="js/main.js"></script>
 
-        <script>
+        <!--<script>
             var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
             g.src='//www.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
+        </script>-->
     </body>
 </html>
